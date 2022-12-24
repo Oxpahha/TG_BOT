@@ -1,5 +1,7 @@
 ## Simple TGbot
 
+### command list
+/info 
 
 
 ### requirements
