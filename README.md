@@ -1,8 +1,8 @@
 ## Simple TGbot
 
 ### command list
-/menu
-/info 
+* /menu
+* /info 
 
 
 ### requirements
