@@ -1,4 +1,5 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import CallbackQueryHandler
 import functions as f
 import config as config
 
@@ -11,6 +12,8 @@ print('Bot starting')
 
 start_hand = CommandHandler('start', f.greetings)
 info_hand = CommandHandler('info', f.command_list)
+menu_hand = CommandHandler('menu', f.menu)
+push_button = CallbackQueryHandler(f.push)
 msg_hand = MessageHandler(Filters.text, f.get_msg)
 photo_hand = MessageHandler(Filters.photo, f.get_photo)
 video_hand = MessageHandler(Filters.video, f.get_video)
@@ -18,9 +21,19 @@ video_hand = MessageHandler(Filters.video, f.get_video)
 
 dispetcher.add_handler(start_hand)
 dispetcher.add_handler(info_hand)
+dispetcher.add_handler(menu_hand)
+dispetcher.add_handler(push_button)
 dispetcher.add_handler(msg_hand)
 dispetcher.add_handler(photo_hand)
 dispetcher.add_handler(video_hand)
+
+
+
+
+
+
+
+
 
 
 updater.start_polling(poll_interval=0.5)
