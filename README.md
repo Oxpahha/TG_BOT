@@ -1,6 +1,7 @@
 ## Simple TGbot
 
 ### command list
+/menu
 /info 
 
 
