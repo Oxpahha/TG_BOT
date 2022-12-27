@@ -1,8 +1,9 @@
 ## Simple TGbot
 
 ### command list
-* /menu
-* /info 
+* /menu - меню с кнопками
+* /info - устаревший аналог меню
+* /calc - простой калькулятор ( /calc [num] [?] [num]) 
 
 
 ### requirements

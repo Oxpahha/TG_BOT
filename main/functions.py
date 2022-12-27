@@ -78,9 +78,6 @@ def menu(update: Update, context: CallbackContext):
     push(update)
     
 def operator(n_list):
-    print(n_list)
-    print(n_list[0])
-    
     if '-' in n_list[0]:
         return '-'
     elif '+' in n_list[0]:
@@ -101,17 +98,17 @@ def calc(update: Update, context: CallbackContext):
     if len(args) > 1:
         args = [args[0]+args[1]+args[2]]
         oper = operator(args)
-
+    str_sended = args
     args = str.split(args[0],f'{oper}')
 
     if oper == '+':
-        update.message.reply_text(int(args[0])+int(args[1])) 
+        update.message.reply_text(f'{str(str_sended[0])}={int(args[0])+int(args[1])}') 
     if oper == '-':
-        update.message.reply_text(int(args[0])-int(args[1])) 
+        update.message.reply_text(f'{str(str_sended[0])}={int(args[0])-int(args[1])}') 
     if oper == '*':
-        update.message.reply_text(int(args[0])*int(args[1])) 
+        update.message.reply_text(f'{str(str_sended[0])}={int(args[0])*int(args[1])}') 
     if oper == '/' :  
-        update.message.reply_text(int(args[0])/int(args[1])) 
+        update.message.reply_text(f'{str(str_sended[0])}={int(args[0])/int(args[1])}') 
 
 
 
