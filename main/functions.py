@@ -1,4 +1,4 @@
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, PhotoSize
 from telegram.ext import CallbackContext
 import config 
 
@@ -33,7 +33,8 @@ def get_msg(update: Update, context: CallbackContext):
 
 def get_photo(update: Update, context: CallbackContext):
     logger(update,context)
-    pid = context.bot.getFile(update.message.photo[1])
+    pid = context.bot.getFile(update.message.photo[3])
+    print(pid)
     pid.download()
     update.message.reply_text('Nice!')
 
