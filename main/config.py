@@ -1,7 +1,45 @@
 from datetime import datetime
+import csv
 
 token_path = ".env"
 logger_path = ""
+book_path = "./.book/book.csv"
+
+
+def add_book_user(subject, id='', username='', first_name='', last_name='', check = '1'):
+    write_book(f'\n{subject},{id},{username},{first_name},{last_name},{check}')
+
+def write_book(data):
+    with open(book_path,'a',encoding= 'utf-8') as file:
+        file.writelines(data)
+
+def find_book_csv(data):
+    with open(book_path, newline='') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if data in row:
+                return(row)
+
+def check_set_book_csv(user_id, check):
+    with open(book_path, newline='') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if user_id in row:
+                row[5] = check
+
+
+
+
+        
+# test_subject = 'politiес'
+# test_id = '23121'
+# test_username = 'jobb'
+# test_first_name = 'Jack'
+# test_last_name = 'Jojo'
+# add_book_user(test_subject,test_id,test_username,test_first_name,test_last_name)
+
+# print(find_book_csv('str3'))
+
 
 def log_init():
     global logger_path
